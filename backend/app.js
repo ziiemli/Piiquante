@@ -3,14 +3,12 @@ const express = require("express")
 const formData = require("express-form-data")
 //import
 const app = express()
+//import package to use environment variables
+const dotenv = require("dotenv").config()
 
 //access to the request body
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
-
-// app.use(multer({
-//   dest: './uploads/'
-// }))
 
 //import mongoose
 const mongoose = require("mongoose")
@@ -23,8 +21,8 @@ const sauceRoutes = require("./routes/sauce")
 
 //mongoose
 mongoose
-    .connect("mongodb+srv://ziiemli:ZiieMongoDB@cluster0.t5eaalb.mongodb.net/?retryWrites=true&w=majority", {useNewUrlParser: true, useUnifiedTopology: true})
-    .then(() => console.log("Connexion à MongoDB réussie !"))
+    .connect(`mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}/?retryWrites=true&w=majority`, {useNewUrlParser: true, useUnifiedTopology: true})
+    .then(() => console.log("Connexion à MZongoDB réussie !"))
     .catch(() => console.log("Connexion à MongoDB échouée !"))
 
 //allow software to access API
