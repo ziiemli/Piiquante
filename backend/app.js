@@ -1,7 +1,6 @@
 //import express
 const express = require("express")
 const formData = require("express-form-data")
-//import
 const app = express()
 //import package to use environment variables
 const dotenv = require("dotenv").config()
@@ -14,9 +13,8 @@ app.use(express.urlencoded({extended: true}))
 const mongoose = require("mongoose")
 //access server path
 const path = require("path")
-//import userRoutes
+//import Routes
 const userRoutes = require("./routes/user")
-//import sauceRoutes
 const sauceRoutes = require("./routes/sauce")
 
 //mongoose

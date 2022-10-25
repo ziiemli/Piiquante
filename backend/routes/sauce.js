@@ -3,7 +3,7 @@ const express = require("express")
 //create router
 const router = express.Router()
 
-//import multer
+//import middleware
 const auth = require("../middleware/auth")
 const multer = require("../middleware/multer-config")
 
